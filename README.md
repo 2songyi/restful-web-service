@@ -1,2 +1,2 @@
 # restful-web-service
-RESTfl API 관련
+RESTful API 관련
