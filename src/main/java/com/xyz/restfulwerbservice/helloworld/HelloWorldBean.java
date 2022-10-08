@@ -1,4 +1,4 @@
-package com.xyz.restfulwerbservice;
+package com.xyz.restfulwerbservice.helloworld;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
