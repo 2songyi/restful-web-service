@@ -2,6 +2,7 @@ package com.xyz.restfulwerbservice.user;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -22,12 +23,12 @@ public class UserDaoService {
 		return users;
 	}
 	
-	// 사용자 추가
+	// 사용자 추가 
 	public User save(User user) {
 		if (user.getId() == null) {
 			user.setId(++usersCount);
 		}
-		
+		users.add(user);
 		return user;
 	}
 	
@@ -40,4 +41,24 @@ public class UserDaoService {
 		}
 		return null;
 	}
+	
+	// 개별 데이터 삭제
+	public User deleteById(int id) {
+		// 유효성 검증
+		Iterator<User> iterator = users.iterator();
+		// 열거형 데이터를 순차적으로 접근해서 사용하는 열거형 데이터
+		
+		while(iterator.hasNext()) {
+			User user = iterator.next();
+			
+			if (user.getId() == id) {
+				iterator.remove();
+				return user;
+			}
+		}
+		
+		return null;
+	}
+	
+	
 }
